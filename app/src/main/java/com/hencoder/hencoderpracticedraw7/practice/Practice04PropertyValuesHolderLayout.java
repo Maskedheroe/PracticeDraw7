@@ -1,5 +1,7 @@
 package com.hencoder.hencoderpracticedraw7.practice;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -35,9 +37,19 @@ public class Practice04PropertyValuesHolderLayout extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 // 使用 PropertyValuesHolder.ofFloat() 来创建不同属性的动画值方案
+                /**
+                 * PropertyValuesHolder 的意思从名字可以看出来，它是一个属性值的批量存放地。
+                 * 所以你如果有多个属性需要修改，可以把它们放在不同的 PropertyValuesHolder 中，
+                 * 然后使用  ofPropertyValuesHolder() 统一放进 Animator。
+                 * 这样你就不用为每个属性单独创建一个 Animator 分别执行了。
+                 * */
+                PropertyValuesHolder holder1 =  PropertyValuesHolder.ofFloat("scaleX",0,1);
+                PropertyValuesHolder holder2 =  PropertyValuesHolder.ofFloat("scaleY",0,1);
+                PropertyValuesHolder holder3 =  PropertyValuesHolder.ofFloat("alpha",0,1);
                 // 第一个： scaleX 从 0 到 1
                 // 第二个： scaleY 从 0 到 1
                 // 第三个： alpha 从 0 到 1
+                ObjectAnimator.ofPropertyValuesHolder(view,holder1,holder2,holder3).start();
 
                 // 然后，用 ObjectAnimator.ofPropertyValuesHolder() 把三个属性合并，创建 Animator 然后执行
             }
