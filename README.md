@@ -1,5 +1,5 @@
 ![](images/icon.png)
-已完成 且保留问题 关于HSV的
+已完成 且保留问题 关于HSV
 ====
 HenCoder 绘制 7 属性动画 练习项目
 ===
